@@ -16,6 +16,14 @@ static char THIS_FILE[]=__FILE__;
 
 CFileView::CFileView()
 {
+	asd' fj'pasjぉ
+		けしい だ
+		っ'げぇ;j ojds
+		fk j
+		; ljsa
+		;ksj sd
+		j
+		'
 }
 
 CFileView::~CFileView()
