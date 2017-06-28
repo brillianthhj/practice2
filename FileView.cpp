@@ -39,7 +39,7 @@ BEGIN_MESSAGE_MAP(CFileView, CDockablePane)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CWorkspaceBar 메시지 처리기
+// CWorkspaceBar 메시지 처리�?
 
 int CFileView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
@@ -49,21 +49,21 @@ int CFileView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CRect rectDummy;
 	rectDummy.SetRectEmpty();
 
-	// 뷰를 만듭니다.
+	// 뷰�? 만듭?�다.
 	const DWORD dwViewStyle = WS_CHILD | WS_VISIBLE | TVS_HASLINES | TVS_LINESATROOT | TVS_HASBUTTONS;
 
 	if (!m_wndFileView.Create(dwViewStyle, rectDummy, this, 4))
 	{
-		TRACE0("파일 뷰를 만들지 못했습니다.\n");
-		return -1;      // 만들지 못했습니다.
+		TRACE0("?�일 뷰�? 만들지 못했?�니??\n");
+		return -1;      // 만들지 못했?�니??
 	}
 
-	// 뷰 이미지를 로드합니다.
+	// �??��?지�?로드?�니??
 	m_FileViewImages.Create(IDB_FILE_VIEW, 16, 0, RGB(255, 0, 255));
 	m_wndFileView.SetImageList(&m_FileViewImages, TVSIL_NORMAL);
 
 	m_wndToolBar.Create(this, AFX_DEFAULT_TOOLBAR_STYLE, IDR_EXPLORER);
-	m_wndToolBar.LoadToolBar(IDR_EXPLORER, 0, 0, TRUE /* 잠금 */);
+	m_wndToolBar.LoadToolBar(IDR_EXPLORER, 0, 0, TRUE /* ?�금 */);
 
 	OnChangeVisualStyle();
 
@@ -73,10 +73,10 @@ int CFileView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	m_wndToolBar.SetOwner(this);
 
-	// 모든 명령은 부모 프레임이 아닌 이 컨트롤을 통해 라우팅됩니다.
+	// 모든 명령?� 부�??�레?�이 ?�닌 ??컨트롤을 ?�해 ?�우?�됩?�다.
 	m_wndToolBar.SetRouteCommandsViaFrame(FALSE);
 
-	// 정적 트리 뷰 데이터를 더미 코드로 채웁니다.
+	// ?�적 ?�리 �??�이?��? ?��? 코드�?채웁?�다.
 	FillFileView();
 	AdjustLayout();
 
@@ -91,10 +91,10 @@ void CFileView::OnSize(UINT nType, int cx, int cy)
 
 void CFileView::FillFileView()
 {
-	HTREEITEM hRoot = m_wndFileView.InsertItem(_T("FakeApp 파일"), 0, 0);
+	HTREEITEM hRoot = m_wndFileView.InsertItem(_T("FakeApp ?�일"), 0, 0);
 	m_wndFileView.SetItemState(hRoot, TVIS_BOLD, TVIS_BOLD);
 
-	HTREEITEM hSrc = m_wndFileView.InsertItem(_T("FakeApp 소스 파일"), 0, 0, hRoot);
+	HTREEITEM hSrc = m_wndFileView.InsertItem(_T("FakeApp ?�스 ?�일"), 0, 0, hRoot);
 
 	m_wndFileView.InsertItem(_T("FakeApp.cpp"), 1, 1, hSrc);
 	m_wndFileView.InsertItem(_T("FakeApp.rc"), 1, 1, hSrc);
@@ -103,7 +103,7 @@ void CFileView::FillFileView()
 	m_wndFileView.InsertItem(_T("MainFrm.cpp"), 1, 1, hSrc);
 	m_wndFileView.InsertItem(_T("StdAfx.cpp"), 1, 1, hSrc);
 
-	HTREEITEM hInc = m_wndFileView.InsertItem(_T("FakeApp 헤더 파일"), 0, 0, hRoot);
+	HTREEITEM hInc = m_wndFileView.InsertItem(_T("FakeApp ?�더 ?�일"), 0, 0, hRoot);
 
 	m_wndFileView.InsertItem(_T("FakeApp.h"), 2, 2, hInc);
 	m_wndFileView.InsertItem(_T("FakeAppDoc.h"), 2, 2, hInc);
@@ -112,7 +112,7 @@ void CFileView::FillFileView()
 	m_wndFileView.InsertItem(_T("MainFrm.h"), 2, 2, hInc);
 	m_wndFileView.InsertItem(_T("StdAfx.h"), 2, 2, hInc);
 
-	HTREEITEM hRes = m_wndFileView.InsertItem(_T("FakeApp 리소스 파일"), 0, 0, hRoot);
+	HTREEITEM hRes = m_wndFileView.InsertItem(_T("FakeApp 리소???�일"), 0, 0, hRoot);
 
 	m_wndFileView.InsertItem(_T("FakeApp.ico"), 2, 2, hRes);
 	m_wndFileView.InsertItem(_T("FakeApp.rc2"), 2, 2, hRes);
@@ -137,7 +137,7 @@ void CFileView::OnContextMenu(CWnd* pWnd, CPoint point)
 
 	if (point != CPoint(-1, -1))
 	{
-		// 클릭한 항목을 선택합니다.
+		// ?�릭????��???�택?�니??
 		CPoint ptTree = point;
 		pWndTree->ScreenToClient(&ptTree);
 
@@ -171,43 +171,43 @@ void CFileView::AdjustLayout()
 
 void CFileView::OnProperties()
 {
-	AfxMessageBox(_T("속성...."));
+	AfxMessageBox(_T("?�성...."));
 
 }
 
 void CFileView::OnFileOpen()
 {
-	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+	// TODO: ?�기??명령 처리�?코드�?추�??�니??
 }
 
 void CFileView::OnFileOpenWith()
 {
-	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+	// TODO: ?�기??명령 처리�?코드�?추�??�니??
 }
 
 void CFileView::OnDummyCompile()
 {
-	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+	// TODO: ?�기??명령 처리�?코드�?추�??�니??
 }
 
 void CFileView::OnEditCut()
 {
-	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+	// TODO: ?�기??명령 처리�?코드�?추�??�니??
 }
 
 void CFileView::OnEditCopy()
 {
-	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+	// TODO: ?�기??명령 처리�?코드�?추�??�니??
 }
 
 void CFileView::OnEditClear()
 {
-	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+	// TODO: ?�기??명령 처리�?코드�?추�??�니??
 }
 
 void CFileView::OnPaint()
 {
-	CPaintDC dc(this); // 그리기를 위한 디바이스 컨텍스트입니다.
+	CPaintDC dc(this); // 그리기�? ?�한 ?�바?�스 컨텍?�트?�니??
 
 	CRect rectTree;
 	m_wndFileView.GetWindowRect(rectTree);
@@ -227,7 +227,7 @@ void CFileView::OnSetFocus(CWnd* pOldWnd)
 void CFileView::OnChangeVisualStyle()
 {
 	m_wndToolBar.CleanUpLockedImages();
-	m_wndToolBar.LoadBitmap(theApp.m_bHiColorIcons ? IDB_EXPLORER_24 : IDR_EXPLORER, 0, 0, TRUE /* 잠금 */);
+	m_wndToolBar.LoadBitmap(theApp.m_bHiColorIcons ? IDB_EXPLORER_24 : IDR_EXPLORER, 0, 0, TRUE /* ?�금 */);
 
 	m_FileViewImages.DeleteImageList();
 
@@ -236,7 +236,7 @@ void CFileView::OnChangeVisualStyle()
 	CBitmap bmp;
 	if (!bmp.LoadBitmap(uiBmpId))
 	{
-		TRACE(_T("비트맵을 로드할 수 없습니다. %x\n"), uiBmpId);
+		TRACE(_T("비트맵을 로드?????�습?�다. %x\n"), uiBmpId);
 		ASSERT(FALSE);
 		return;
 	}
